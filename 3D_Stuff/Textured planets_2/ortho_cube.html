@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Draw Application</title>
+
+<script type="text/javascript" src="Common/webgl-utils.js"></script>
+<script type="text/javascript" src="Common/initShaders.js"></script>
+<script type="text/javascript" src="Common/MV.js"></script>
+
+<script type="text/javascript" src="planet.js"></script>
+
+<script type="text/javascript" src="vs.js"></script>
+<script type="text/javascript" src="fs_tails.js"></script>
+
+<script type="text/javascript" src="gl_stuff/shader.js"></script>
+<script type="text/javascript" src="gl_stuff/buffer.js"></script>
+<script type="text/javascript" src="gl_stuff/uniform.js"></script>
+<script type="text/javascript" src="gl_stuff/viewport.js"></script>
+<script type="text/javascript" src="gl_stuff/camera.js"></script>
+<script type="text/javascript" src="gl_stuff/camera_bounded.js"></script>
+
+<script type="text/javascript" src="ortho_cube.js"></script>
+</head>
+
+<body>
+<div style="float:left">
+<canvas id="gl-canvas" width="800" height="800">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<button onclick="submit()">LocalLighting</button>
+<button onclick="submit()">PerFrag</button>
+
+<div class="TimeScale">
+  <input type="range" min="1" max="3000" value="100" class="slider" id="TimeScale">
+</div>
+
+</body>
+</html>

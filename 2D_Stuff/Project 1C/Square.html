@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<title>Rotating Square</title>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+uniform vec4 minMax;
+
+attribute vec4 vPosition;
+
+attribute vec4 vColor;
+varying vec4 fColor;
+
+void main()
+{
+	fColor = vColor;
+	gl_Position.x =  vPosition.x / (minMax[0] - minMax[1]) * 2.0;
+	gl_Position.y =  vPosition.y / (minMax[3] - minMax[2]) * 2.0;
+	gl_Position.z = 0.0;
+    gl_Position.w = 1.0;
+	
+	//gl_Position = vPosition;
+	
+	
+	gl_PointSize = 3.0;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+// need it if you are receiving vertex colors
+ varying vec4 fColor;
+
+void main()
+{
+	
+    gl_FragColor = vec4( 0.0, 0.0, 1.0, 1.0 );
+	//gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="Common/webgl-utils.js"></script>
+<script type="text/javascript" src="Common/initShaders.js"></script>
+<script type="text/javascript" src="Common/MV.js"></script>
+<script type="text/javascript" src="Square.js"></script>
+<script type="text/javascript" src="matrix.js"></script>
+</head>   
+
+
+<body>
+
+<canvas id="gl-canvas" width="512" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas> 
+
+<br>
+<button onclick="clearBuff()">clear</button>
+<button onclick="find()">select</button>
+<button onclick="change()">draw</button>
+<button onclick="transform()">transform</button>
+<br>
+<button onclick="point()">point</button>
+<button onclick="line()">line</button>
+<button onclick="triangle()">triangle</button>
+<br>
+<button onclick="translateType()">translate</button>
+<button onclick="rotateType()">rotate</button>
+<button onclick="scaleType()">scale</button>
+<br>
+<textarea id="coord" rows="5" cols="70">
+</textarea>
+
+<br>
+World Coord[X Min]: <input id="Xmin" type="number" name="XMin" value = "0"> World Coord[X Max]: <input id ="Xmax" name="Xmax" type="number" name="XMax" value = "0"><br>
+<br>
+World Coord[Y Min]: <input id="Ymin" type="number" name="YMin" value = "0"> World Coord[Y Min]: <input id = "Ymax" name="Ymax" type="number" name="YMax" value = "0">
+
+
+<button onclick="submit()">submit</button>
+
+
+
+
+
+
+</body>
+</html>

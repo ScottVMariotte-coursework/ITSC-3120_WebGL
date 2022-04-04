@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Draw Application</title>
+
+<script type="text/javascript" src="Common/webgl-utils.js"></script>
+<script type="text/javascript" src="Common/initShaders.js"></script>
+<script type="text/javascript" src="Common/MV.js"></script>
+<script type="text/javascript" src="vs.js"></script>
+<script type="text/javascript" src="fs.js"></script>
+<script type="text/javascript" src="dolphins.js"></script>
+<script type="text/javascript" src="ortho_cube.js"></script>
+</head>
+
+<body>
+<div style="float:left">
+<canvas id="gl-canvas" width="1200" height="600">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<div class="slidecontainer">
+
+  <input type="range" min="-1000" max="1000" value="-1000" class="slider" id="left">
+  <input type="range" min="-1000" max="1000" value="1000" class="slider" id="right">
+  <br>
+  <input type="range" min="-1000" max="1000" value="1000" class="slider" id="top">
+  <input type="range" min="-1000" max="1000" value="-1000" class="slider" id="bot">
+  <br>
+  <input type="range" min=".1" max="40000" value="0" class="slider" id="near">
+  <input type="range" min="0" max="1000000" value="1000000" class="slider" id="far">
+  <br>
+  <button onclick="submit()">submit</button>
+</div>
+
+</body>
+
+</html>

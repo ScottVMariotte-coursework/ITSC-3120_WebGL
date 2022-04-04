@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<title>Rotating Square</title>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+// vertex position
+attribute vec4 vPosition;
+
+// Need this when you have vertex colors
+attribute vec4 vColor; 
+//
+// need this to pass color to fragment shader
+varying vec4 fColor;
+//
+
+void main()
+{
+// if you are using vertex colors you need to assign it to fColor
+	fColor = vColor;
+
+	gl_Position = vPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+// need it if you are receiving vertex colors
+ varying vec4 fColor;
+
+void main()
+{
+    gl_FragColor = vec4( 1.0, 0.0, 0.0, 1.0 );
+
+// use this if you are getting colors from vertex shader 
+	gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="Common/webgl-utils.js"></script>
+<script type="text/javascript" src="Common/initShaders.js"></script>
+<script type="text/javascript" src="Common/MV.js"></script>
+<script type="text/javascript" src="Square.js"></script>
+</head>   
+
+
+<body>
+<canvas id="gl-canvas" width="512" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<textarea id="coord" rows="2" cols="50">
+</textarea>
+
+</body>
+</html>
